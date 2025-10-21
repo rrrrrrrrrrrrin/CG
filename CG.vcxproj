@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cicrles.cpp" />
+    <ClCompile Include="lines.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgbimage.h" />

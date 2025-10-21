@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\0berd\\Desktop\\CG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\0berd\\Desktop\\CG\\lines.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|solutionrelative:lines.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\0berd\\Desktop\\CG\\cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|solutionrelative:cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -43,19 +47,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "lines.cpp",
+              "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\lines.cpp",
+              "RelativeDocumentMoniker": "lines.cpp",
+              "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\lines.cpp*",
+              "RelativeToolTip": "lines.cpp*",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-21T21:24:38.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "cicrles.cpp",
               "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\cicrles.cpp",
               "RelativeDocumentMoniker": "cicrles.cpp",
-              "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\cicrles.cpp*",
-              "RelativeToolTip": "cicrles.cpp*",
-              "ViewState": "AgIAADIAAAAAAAAAAAAcwEAAAAAkAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\cicrles.cpp",
+              "RelativeToolTip": "cicrles.cpp",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAwEcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-21T19:10:12.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "rgbimage.h",
               "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\rgbimage.h",
               "RelativeDocumentMoniker": "rgbimage.h",

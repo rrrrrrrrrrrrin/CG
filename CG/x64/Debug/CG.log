@@ -1,3 +1,2 @@
-﻿  cicrles.cpp
-C:\Users\0berd\Desktop\CG\cicrles.cpp(52,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  lines.cpp
   CG.vcxproj -> C:\Users\0berd\Desktop\CG\x64\Debug\CG.exe
