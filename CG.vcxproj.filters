@@ -21,6 +21,9 @@
     <ClCompile Include="lines.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lines-2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgbimage.h">

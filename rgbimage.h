@@ -17,24 +17,24 @@ struct RGB {
 #pragma pack(push,1)
 struct BITMAPFILEHEADER {
 	WORD bfType;
-	DWORD bfSize; // ?????? ?????
+	DWORD bfSize; // размер файла
 	WORD bfReserved1;
 	WORD bfReserved2;
-	DWORD bfOffBits; // ???????? ?? ???? ?????? (?????? 54 = 16+biSize)
+	DWORD bfOffBits; // смещение до поля данных (обычно 54 = 16+biSize)
 };
 
 struct BITMAPINFOHEADER {
-	DWORD biSize; // ?????? ????????? ? ??????
-	LONG biWidth; // ?????? ? ????????
+	DWORD biSize; // размер структуры в байтах
+	LONG biWidth; // ширина в пикселях
 	LONG biHeight;
-	WORD biPlanes; // ?????? ?????? ???? 1
-	WORD biBitCount; // ???-?? ??? ?? ???? 0 | 1 | 4 | 8 | 16 | 24 | 32
+	WORD biPlanes; // Всегда должно быть 1
+	WORD biBitCount; // Кол-во бит на цвет 0 | 1 | 4 | 8 | 16 | 24 | 32
 	DWORD biCompression;
 	DWORD biSizeImage;
-	LONG biXPelsPerMeter; // ?????????????? ??????????
-	LONG biYPelsPerMeter; // ???????????? ??????????
-	DWORD biClrUsed; // ???-?? ???????????? ?????? (???? ???????????? ??????? ??????)
-	DWORD biClrImportant; // ???-?? ???????????? ??????
+	LONG biXPelsPerMeter; // горизонтальное разрешение
+	LONG biYPelsPerMeter; // вертикальное разрешение
+	DWORD biClrUsed; // Кол-во используемых цветов (если используется таблица цветов)
+	DWORD biClrImportant; // Кол-во существенных цветов
 };
 #pragma pack(pop)
 
@@ -53,10 +53,12 @@ class rgbImg {
 		std::swap(width_, other.width_);
 		std::swap(height_, other.height_);
 	}
-	int get_offset(int width) {
+	int static get_offset(int width) {
 		int offset = 0;
-		if (width % 4)
+		if (width % 4 != 0)
+		{
 			offset = 4 - (3 * width) % 4;
+		}
 		return offset;
 	}
 public:
@@ -64,7 +66,9 @@ public:
 		RGB zero = { 0, 0, 0 };
 		pixels_ = new RGB * [height_];
 		if (pixels_ == nullptr)
+		{
 			throw std::bad_alloc();
+		}
 		for (unsigned int row = 0; row < height_; ++row) {
 			pixels_[row] = new RGB[width_];
 			if (pixels_[row] == nullptr) {
@@ -80,7 +84,9 @@ public:
 	rgbImg(const rgbImg& other) :width_(other.width_), height_(other.height_), pixels_(nullptr) {
 		pixels_ = new RGB * [height_];
 		if (pixels_ == nullptr)
+		{
 			throw std::bad_alloc();
+		}
 		for (unsigned int row = 0; row < height_; ++row) {
 			pixels_[row] = new RGB[width_];
 			if (pixels_[row] == nullptr) {
@@ -118,28 +124,38 @@ public:
 	unsigned int height() const { return height_; }
 	RGB get(unsigned int column, unsigned int row) const {
 		if (row >= height_)
+		{
 			throw std::out_of_range("Larger than image height");
+		}
 		if (column >= width_)
+		{
 			throw std::out_of_range("Larger than image width");
+		}
 		return pixels_[row][column];
 	}
 	RGB& get(unsigned int column, unsigned int row) {
 		if (row >= height_)
+		{
 			throw std::out_of_range("Larger than image height");
+		}
 		if (column >= width_)
+		{
 			throw std::out_of_range("Larger than image width");
+		}
 		return pixels_[row][column];
 	}
 	bool save(const char* filename) {
 		if (pixels_ == nullptr)
+		{
 			return false;
+		}
 
 		std::ofstream outBMP(filename, std::ios_base::binary);
 		if (!outBMP.is_open()) {
 			throw std::runtime_error("Failed to open output file");
 		}
 
-		const int offset = get_offset(width_);
+		const int offset = get_offset(static_cast<const int>(width_));
 		BITMAPFILEHEADER bmfh;
 		char bfType[] = { 'B', 'M' };
 		bmfh.bfType = *((WORD*)bfType);
@@ -151,11 +167,11 @@ public:
 		outBMP.write((char*)&bmfh, sizeof(BITMAPFILEHEADER));
 
 		BITMAPINFOHEADER bmih;
-		bmih.biSize = sizeof(BITMAPINFOHEADER); // ?????? ????????? ? ??????
-		bmih.biWidth = width_;  // ?????? ? ????????
-		bmih.biHeight = height_;
-		bmih.biPlanes = 1;		// ?????? ?????? ???? 1
-		bmih.biBitCount = 24;   // ???-?? ??? ?? ???? 0 | 1 | 4 | 8 | 16 | 24 | 32
+		bmih.biSize = sizeof(BITMAPINFOHEADER); // размер структуры в байтах
+		bmih.biWidth = static_cast<LONG>(width_);  // ширина в пикселях
+		bmih.biHeight = static_cast<LONG>(height_);
+		bmih.biPlanes = 1;		// Всегда должно быть 1
+		bmih.biBitCount = 24;   // Кол-во бит на цвет 0 | 1 | 4 | 8 | 16 | 24 | 32
 		bmih.biCompression = 0;
 		bmih.biSizeImage = bmfh.bfSize - bmfh.bfOffBits;
 		bmih.biXPelsPerMeter = 1;
@@ -166,7 +182,9 @@ public:
 
 		BYTE* offset_array = new BYTE[offset];
 		for (int i = 0; i < offset; ++i)
+		{
 			offset_array[i] = 0;
+		}
 
 		for (unsigned int row = height_; row > 0; --row) {
 			for (unsigned int col = 0; col < width_; ++col) {
