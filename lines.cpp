@@ -31,6 +31,9 @@ int main(int argc, char* argv[]) {
 		int x2 = 0;
 		int y2 = 0;
 
+		float slopeY = 0;
+		float slopeX = 0;
+
 		int ch;
 		while ((ch = inFile.get()) != EOF)
 		{
@@ -39,13 +42,23 @@ int main(int argc, char* argv[]) {
 			inFile >> x2;
 			inFile >> y2;
 
-			// Lengths
-			int dx = x2 - x1;
-			int dy = y2 - y1;
+			// Lengths; make float so that the division by int will give a float slope value (if the slope was int, it would just be 0)
+			float dx = x2 - x1;
+			float dy = y2 - y1;
 
-			for (int xPix = x1; xPix < x2; ++xPix)
+			int max_length = std::max(std::abs(dx), std::abs(dy));
+
+			if (max_length != 0)
 			{
-				
+				slopeY = dy / max_length;  // if not 1 (or -1), line is more vertical than horizontal (tg a = k = dy/dx; y = kx )
+				slopeX = dx / max_length;  // if not 1 (or -1), line when is more horizontal than vertical (tg a = k = dx/dy; y = kx )
+
+				std::cout << slopeY << " " << slopeX << '\n';
+
+				for (int px = 0; px <= max_length; ++px)
+				{
+					img.get((x1 + px * slopeX), round(y1 + px * slopeY)) = white;
+				}
 			}
 
 			img.save(output);

@@ -1,2 +1,11 @@
 ﻿  lines.cpp
-  CG.vcxproj -> C:\Users\0berd\Desktop\CG\x64\Debug\CG.exe
+C:\Users\1\Desktop\CG\lines.cpp(46,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\1\Desktop\CG\lines.cpp(47,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\1\Desktop\CG\lines.cpp(49,19): warning C4244: 'initializing': conversion from 'const _Ty' to 'int', possible loss of data
+C:\Users\1\Desktop\CG\lines.cpp(49,19): warning C4244:         with
+C:\Users\1\Desktop\CG\lines.cpp(49,19): warning C4244:         [
+C:\Users\1\Desktop\CG\lines.cpp(49,19): warning C4244:             _Ty=float
+C:\Users\1\Desktop\CG\lines.cpp(49,19): warning C4244:         ]
+C:\Users\1\Desktop\CG\lines.cpp(60,39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\1\Desktop\CG\lines.cpp(60,14): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  CG.vcxproj -> C:\Users\1\Desktop\CG\x64\Debug\CG.exe
