@@ -1,8 +1,6 @@
 ﻿  lines-2.cpp
-C:\Users\1\Desktop\CG\lines-2.cpp(42,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\1\Desktop\CG\lines-2.cpp(43,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\1\Desktop\CG\lines-2.cpp(64,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\1\Desktop\CG\lines-2.cpp(65,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\1\Desktop\CG\lines-2.cpp(91,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\1\Desktop\CG\lines-2.cpp(92,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\1\Desktop\CG\lines-2.cpp(49,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\1\Desktop\CG\lines-2.cpp(56,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\1\Desktop\CG\lines-2.cpp(57,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\1\Desktop\CG\lines-2.cpp(62,20): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   CG.vcxproj -> C:\Users\1\Desktop\CG\x64\Debug\CG.exe

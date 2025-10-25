@@ -46,9 +46,9 @@
               "Title": "lines-2.cpp",
               "DocumentMoniker": "C:\\Users\\1\\Desktop\\CG\\lines-2.cpp",
               "RelativeDocumentMoniker": "lines-2.cpp",
-              "ToolTip": "C:\\Users\\1\\Desktop\\CG\\lines-2.cpp",
-              "RelativeToolTip": "lines-2.cpp",
-              "ViewState": "AgIAACcAAAAAAAAAAAArwDwAAAAkAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\1\\Desktop\\CG\\lines-2.cpp*",
+              "RelativeToolTip": "lines-2.cpp*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAAD8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-22T18:33:17.859Z",
               "EditorCaption": ""
@@ -63,8 +63,7 @@
               "RelativeToolTip": "lines.cpp",
               "ViewState": "AgIAAB0AAAAAAAAAAAAuwCQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-21T21:24:38.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T21:24:38.897Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "cicrles.cpp",
               "ViewState": "AgIAACMAAAAAAAAAAAA2wEgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-21T19:10:12.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T19:10:12.869Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "rgbimage.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-21T19:10:07.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T19:10:07.808Z"
             }
           ]
         }

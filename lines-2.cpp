@@ -46,14 +46,6 @@ int main(int argc, char* argv[]) {
 			{
 				float slope = dy / dx;
 
-				int change = slope < 0 ? -1 : 1;
-
-				if (dx < 0)
-				{
-					std::swap(x1, x2);
-					std::swap(y1, y2);
-				}
-
 				int y = y1;
 
 				for (int px = 0; px < std::abs(dx); ++px)
@@ -65,35 +57,9 @@ int main(int argc, char* argv[]) {
 					int d1 = p - y;  // y is higher on the grid (i.e. less) than p
 
 					// Color in the nearest to the float pixel int pixel which is either y or y+1
-					if (d < d1) { y += change; }  // y+1 is closer, color it in
+					if (d < d1) { ++y; }  // y+1 is closer, color it in
 
 					img.get(y, x1 + px) = white;
-				}
-			}
-			else
-			{
-				float slope = dx / dy;
-
-				int change = slope < 0 ? -1 : 1;
-
-				if (dy < 0)
-				{
-					std::swap(y1, y2);
-					std::swap(x1, x2);
-				}
-
-				int x = x1;
-
-				for (int px = 0; px < std::abs(dy); ++px)
-				{
-					float p = x + px * slope;  
-
-					int d = x + 1 - p;  
-					int d1 = p - x;  
-
-					if (d < d1) { x += change; } 
-
-					img.get(x, y1 + px) = white;
 				}
 			}
 
