@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\1\\Desktop\\CG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\1\\Desktop\\CG\\cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|solutionrelative:cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\1\\Desktop\\CG\\lines-2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|solutionrelative:lines-2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\1\\Desktop\\CG\\cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|solutionrelative:cicrles.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D07A85D-B006-4008-BE6B-0A5E3FBD1DA1}|CG.vcxproj|C:\\Users\\1\\Desktop\\CG\\lines.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,13 +42,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "lines-2.cpp",
               "DocumentMoniker": "C:\\Users\\1\\Desktop\\CG\\lines-2.cpp",
               "RelativeDocumentMoniker": "lines-2.cpp",
               "ToolTip": "C:\\Users\\1\\Desktop\\CG\\lines-2.cpp",
               "RelativeToolTip": "lines-2.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAArwDwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-22T18:33:17.859Z",
               "EditorCaption": ""
@@ -61,20 +61,20 @@
               "RelativeDocumentMoniker": "lines.cpp",
               "ToolTip": "C:\\Users\\1\\Desktop\\CG\\lines.cpp",
               "RelativeToolTip": "lines.cpp",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwCQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwCQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-21T21:24:38.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "cicrles.cpp",
               "DocumentMoniker": "C:\\Users\\1\\Desktop\\CG\\cicrles.cpp",
               "RelativeDocumentMoniker": "cicrles.cpp",
               "ToolTip": "C:\\Users\\1\\Desktop\\CG\\cicrles.cpp",
               "RelativeToolTip": "cicrles.cpp",
-              "ViewState": "AgIAADEAAAAAAAAAAAAkwEEAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAA2wEgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-21T19:10:12.869Z",
               "EditorCaption": ""
@@ -87,7 +87,7 @@
               "RelativeDocumentMoniker": "rgbimage.h",
               "ToolTip": "C:\\Users\\1\\Desktop\\CG\\rgbimage.h",
               "RelativeToolTip": "rgbimage.h",
-              "ViewState": "AgIAACoAAAAAAAAAAAAUwDcAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-10-21T19:10:07.808Z",
               "EditorCaption": ""
