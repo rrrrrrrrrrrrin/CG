@@ -18,6 +18,9 @@
     <ClCompile Include="cicrles-Midpoint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="circles-Bresenham.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgbimage.h">
