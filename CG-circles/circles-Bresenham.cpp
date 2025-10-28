@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) {
 			int p = 2*(1 - R);  // pInitial
 
 			// Draw a circle
-			while (x < -y)  // The octant is restricted by the line x = -y (consider the grid)
+			while (x < y)  // The octant is restricted by the line x = y 
 			{
 				int pDiag = (x + 1) * (x + 1) + y * y - R * R;
 
@@ -161,7 +161,7 @@ int main(int argc, char* argv[]) {
 						p += pDiag_Step;
 					}
 				}
-				else  // pDiag < 0: draw a diagonal or an inside pixel
+				else  // pDiag =< 0: draw a diagonal or an inside pixel
 				{
 					if (p2 > 0)  // draw an inside/vertical pixel
 					{

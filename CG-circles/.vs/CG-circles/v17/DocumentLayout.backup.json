@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -37,6 +37,10 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "circles-Bresenham.cpp",
@@ -44,14 +48,10 @@
               "RelativeDocumentMoniker": "circles-Bresenham.cpp",
               "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham.cpp",
               "RelativeToolTip": "circles-Bresenham.cpp",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAowL4AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAowL4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-28T19:19:24.445Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -63,8 +63,7 @@
               "RelativeToolTip": "cicrles-Midpoint.cpp",
               "ViewState": "AgIAACoAAAAAAAAAAAAAADoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-28T14:47:53.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T14:47:53.637Z"
             }
           ]
         }
