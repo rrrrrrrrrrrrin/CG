@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\cicrles-Midpoint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|solutionrelative:cicrles-Midpoint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "cicrles-Midpoint.cpp",
+              "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\cicrles-Midpoint.cpp",
+              "RelativeDocumentMoniker": "cicrles-Midpoint.cpp",
+              "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\cicrles-Midpoint.cpp",
+              "RelativeToolTip": "cicrles-Midpoint.cpp",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAIwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-10-28T14:47:53.637Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

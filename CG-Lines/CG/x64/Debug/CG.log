@@ -1,0 +1,14 @@
+﻿  lines-2.cpp
+  lines.cpp
+  Generating Code...
+C:\Users\0berd\Desktop\CG\lines-2.cpp(119,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(120,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(132,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(133,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(141,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(146,18): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(169,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(170,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(178,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\0berd\Desktop\CG\lines-2.cpp(184,21): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+  CG.vcxproj -> C:\Users\0berd\Desktop\CG\x64\Debug\CG.exe
