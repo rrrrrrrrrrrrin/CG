@@ -4,7 +4,7 @@
 #include "rgbimage.h"
 
 /*
-	Consider the I quarter of the circle. x starts at 0, y starts at R (in our grid)
+	Consider the I quarter of the circle. x starts at 0, y starts at R (in our grid). Draw the line while y >= R (quarter ends)
 	
 	1. We have [3 possible pixels]: pixel is 
 	   [outside the circle] (goes more [horizontal] than the circle outline so we will increment x "to reach it": [++x]),
@@ -19,20 +19,23 @@
 
 	3. The 3 pixels can be defined as: 
 
-	   [outside] (++x) = [(x+1)^2 + y^2 - R^2]
+	   [outside/horizontal] (++x) = [(x+1)^2 + y^2 - R^2]
 	   
 	   [diagonal] (x+1 and y-1) = [(x+1)^2 + (y-1)^2 - R^2]
 		
-	   [inside] (--y) = [x^2 + (y-1)^2 - R^2]
+	   [inside/vertical] (--y) = [x^2 + (y-1)^2 - R^2]
 
-	4. Let's determine which pixel to draw based on the distance to the diagonal pixel
+	4. Let's determine which pixel to draw [based on the distance to the diagonal pixel]
 	   
-	   The diagonal pixel can either be outside the circle or inside.
+	   The [diagonal pixel can either be outside the circle or inside].
 
-	   The decision parameter for the pixel is pDiag = (x+1)^2 + y^2 - R^2.
+	   The decision parameter for the pixel is [pDiag = (x+1)^2 + (y-1)^2 - R^2].
 
-	   1) If [pDiag > 0], the pixel is outside, we should draw either [diagonal or outside pixel]
-	   2) If [pDiag < 0], the pixel is inside, we should draw either [diagonal or inside pixel]
+	   1) If [pDiag > 0], the [pixel is outside], we should draw [either diagonal or inside pixel] => [either diagonal or vertical step]
+	   (choose the shortest distance <=> the closest to the circle outline pixel)
+
+	   2) If [pDiag < 0], the [pixel is inside], we should draw [either diagonal or outside pixel] => [either diagonal or horizontal step]
+	   (choose the shortest distance <=> the closest to the circle outline pixel)
 
 
 	5. Determine which pixel to draw in each individual case (define decision parameters). To do that, find the shortest distance:
@@ -52,6 +55,8 @@
 		  p1 = 2(x-1)^2 - 2R^2 + (y-1)^2 + y^2
 		  
 		  We need to [derivate a pDiag value]: pDiag = (x+1)^2 + y^2 - R^2 
+		  (WE WILL GET [pDiag DOUBLED] ALL THE TIME LATER AS WELL AS HERE WHEN GETTING A DECISION PARAMETER VALUE)
+
 		  (it will be the only value that has a pDiag_Initial value, is checked in the loop pDiag > 0, < 0
 		  to determine other checks (p1 or p2) and will be changed with pDiag Steps: p = p + pDiag Step) 
 
@@ -60,6 +65,7 @@
 		  If pOutside < pDiag (the distance of the outside pixel is shorter; draw this pixel) 
 		  => pOutside - pDiag < 0 => if [p1 < 0], then draw the [outside pixel]
 		                             if [p1 > 0]: [diagonal]
+
 
 	   2) Analogy - the diagonal and the inside pixel.
 	   
@@ -79,17 +85,39 @@
 	   pDiag_Initial = p_Diag(x = 0, y = R) = 1 + (R-1)^2 - R^2 = 1 + R^2 - 2R + 1 - R^2 = -2R + 2 = 2(1-R)] =>
 	   [pDiag_Initial = 2(1-R)]
 	   
-	   pDiag_Step_H = pDiag_Next_H ( pDiag(x = x+1, change of an outside pixel, i.e. horizontal step) ) - pDiag =
-	   = (x+2)^2 + (y-1)^2 - R^2 - (x+1)^2 - (y-1)^2 + R^2 = 2x + 3
-	   [pDiag_Step_H = 2x+3]
-	
-	   pDiag_Step_V = pDiag_Next_V ( pDiag(y = y-1), change of an inside pixel, i.e. vertical step) - pDiag =
-	   = (x+1)^2 + (y-2)^2 - R^2 - (x+1)^2 - (y-1)^2 + R^2 = -2y + 3
-	   [pDiag_Step_V = -2y+3]
 
-	   pDiag_Step = pDiag_Next ( pDiag(x = x+1, y = y-1) ) - pDiag
-	   = (x+2)^2 - (y-2)^2 + R^2 - (x+1)^2 - (y-1)^2 + R^2 = 2(x - y^2 + 3y + R^2 - 1)
-	   [pDiag_Step = 2(x - y^2 + 3y + R^2 - 1)]
+	   |pDiag_Next_V| (--y) < |pDiag| < |pDiag_Next_H| (++x)
+
+	   pDiag_Step_H = |pDiag_Next_H| ( pDiag(x = x+1, change of an outside pixel, i.e. horizontal step) ) - |pDiag|
+
+	   Horizontal step => x = x+1 and pDiag < 0, pDiag_Next_H > 0 (the pixel is outside now bcs ++x) =>
+
+	   if pDiag_Step_H > 0:
+	   (x+2)^2 + (y-1)^2 - R^2 + (x+1)^2 + (y-1)^2 - R^2 = 2(y-1)^2 - 2R^2 + (x+1)^2 + x^2 + 4x + 4 {-2x + 2x -3 + 3}
+	   = 2((x+1)^2 + (y-1)^2 - R^2) + 2x + 3 = 2(pDiag + x) + 3
+
+	   [pDiag_Step_H = 2(pDiag + x) + 3]
+	
+
+	   pDiag_Step_V = |pDiag| -  |pDiag_Next_V| ( pDiag(y = y-1), change of an inside pixel, i.e. vertical step)
+
+	   Vertical step => y -= y and pDiag > 0, pDiag_Next_V < 0 (the pixel is inside now bcs --y) =>
+
+	   pDiag_Step_V = (x+1)^2 + (y-2)^2 - R^2 + (x+1)^2 + (y-1)^2 - R^2 = 2(pDiag) - 2y + 3 = 2(pDiag - y) + 3 
+	   ((y-2)^2 = y^2 - 4y + 4; => to get (y-1)^2: -2y + 2y - 3 + 3)
+
+	   [pDiag_Step_V = 2(pDiag - y) + 3]
+
+
+	   pDiag_Step = |pDiag_Next| ( pDiag(x = x+1, y = y-1) ) - |pDiag|
+
+	   Let's say pDiag < 0, pDiag_Step > 0 (let's say the pixel moved outside from the inside, hence signs; to derivate pDiag AND have positive values)
+
+	   pDiag_Step = (x+2)^2 + (y-2)^2 - R^2 + (x+1)^2 + (y-1)^2 - R^2 = pDiag - R^2 + (x+2)^2 - (y-2)^2 = pDiag - R^2 + (x+1)^2 + 2x + 3 + (y-1)^2 - 2y + 3
+	   = 2(pDiag + x - y) + 6
+
+	   [pDiag_Step = 2(pDiag + x - y) + 6]
+
 
 	7. Final values that will be used in the algorithm:
 
@@ -111,10 +139,13 @@
 	   [p2 > 0: inside]
 
 
-	   For steps: p = p + pStep:
-	   [pDiag_Step_H = 2x+3]; ++x
-	   [pDiag_Step_V = -2y+3]; --y
-	   [pDiag_Step = 2(x - y^2 + 3y + R^2 - 1)]; ++x, --y
+	   For steps: pDiag = pDiag + pDiag Step:
+	   [pDiag_Step_H = 2(pDiag + x) + 3 = > 2pDiag + 2x + 3 => 
+	   Just get rid of two (don't want to result in floats by division of parameters): pDiag_Step_H = pDiag + 2x + 3 => pDiag will change: pDiag += 2x + 3]; ++x
+
+	   [pDiag_Step_V = 2(pDiag - y) + 3 => pDiag += 3 - 2y]; --y
+
+	   [pDiag_Step = 2(pDiag + x - y) + 6 => pDiag += 2x - 2y + 6]; ++x, --y
 
 */
 
@@ -159,44 +190,8 @@ int main(int argc, char* argv[]) {
 			int p = 2*(1 - R);  // pDiag_Initial
 
 			// Draw a circle
-			while (y >= 0)  
+			while (y >= 0)  //  in one quarter, than symmetrically put a pixel in other 3 quarters
 			{
-				int p1 = 2 * y - 1; // horizontal or diagonal (outside pixel)
-				int p2 = 2 * x + 1; // vertical or diagonal (inside pixel)
-
-				if (p > 0)  // draw a diagonal or an outside pixel
-				{
-					if (p1 < 0)  // draw an outside/horizontal pixel 
-					{
-						++x;
-						int pDiag_Step_H = 2 * x + 3;
-						p += pDiag_Step_H;
-					}
-					else  // p1 >= 0: draw a diagonal pixel
-					{
-						++x;
-						--y;
-						int pDiag_Step = 2 * (x - y * y + 3 * y + R * R - 1);
-						p += pDiag_Step;
-					}
-				}
-				else  // pDiag =< 0: draw a diagonal or an inside pixel
-				{
-					if (p2 > 0)  // draw an inside/vertical pixel
-					{
-						--y;
-						int pDiag_Step_V = -2*y + 3;
-						p += pDiag_Step_V;
-					}
-					else  // p2 =< 0:  draw a diagonal pixel
-					{
-						++x;
-						--y;
-						int pDiag_Step = 2 * (x - y * y + 3 * y + R * R - 1);
-						p += pDiag_Step;
-					}
-				}
-				
 				// Color in the pixel; offset x and y coordinate by x0, y0
 				img.get(x + x0, y + y0) = white;  // y = x
 
@@ -204,6 +199,42 @@ int main(int argc, char* argv[]) {
 				img.get(x + x0, -y + y0) = white;  // x = -y
 				img.get(-x + x0, -y + y0) = white;  // -x = -y
 				img.get(-x + x0, y + y0) = white;  // -x = y
+
+				int p1 = 2*(p + y) - 1; // horizontal or diagonal 
+				int p2 = 2*(p - x) - 1; // vertical or diagonal 
+
+				if (p < 0)  // draw a diagonal or an outside pixel
+				{
+					if (p1 < 0)  // draw an outside/horizontal pixel 
+					{
+						++x;
+						int pDiag_Step_H = 2*x + 3;
+						p += pDiag_Step_H;
+					}
+					else  // p1 >= 0: draw a diagonal pixel
+					{
+						++x;
+						--y;
+						int pDiag_Step = 2*x - 2*y + 6;
+						p += pDiag_Step;
+					}
+				}
+				else  // pDiag >= 0: draw a diagonal or an inside pixel
+				{
+					if (p2 > 0)  // draw an inside/vertical pixel
+					{
+						--y;
+						int pDiag_Step_V = 3 - 2*y;
+						p += pDiag_Step_V;
+					}
+					else  // p2 =< 0:  draw a diagonal pixel
+					{
+						++x;
+						--y;
+						int pDiag_Step = 2 * x - 2 * y + 6;
+						p += pDiag_Step;
+					}
+				}
 			}
 
 			img.save(output);

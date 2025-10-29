@@ -124,7 +124,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cicrles-Midpoint.cpp" />
-    <ClCompile Include="circles-Bresenham-Copy.cpp" />
     <ClCompile Include="circles-Bresenham.cpp" />
   </ItemGroup>
   <ItemGroup>

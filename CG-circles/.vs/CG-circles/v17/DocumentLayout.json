@@ -7,10 +7,6 @@
       "RelativeMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|solutionrelative:circles-Bresenham.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham-Copy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|solutionrelative:circles-Bresenham-Copy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\cicrles-Midpoint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6288E2A9-FB35-41D3-B609-4C4E4B6177E5}|CG-circles.vcxproj|solutionrelative:cicrles-Midpoint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,33 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "circles-Bresenham-Copy.cpp",
-              "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham-Copy.cpp",
-              "RelativeDocumentMoniker": "circles-Bresenham-Copy.cpp",
-              "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham-Copy.cpp",
-              "RelativeToolTip": "circles-Bresenham-Copy.cpp",
-              "ViewState": "AgIAAK8AAAAAAAAAAAAowMkAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-28T22:58:19.86Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "circles-Bresenham.cpp",
               "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham.cpp",
               "RelativeDocumentMoniker": "circles-Bresenham.cpp",
               "ToolTip": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\circles-Bresenham.cpp",
               "RelativeToolTip": "circles-Bresenham.cpp",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAowI0AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAIwPEAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-28T19:19:24.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "cicrles-Midpoint.cpp",
               "DocumentMoniker": "C:\\Users\\0berd\\Desktop\\CG\\CG-circles\\cicrles-Midpoint.cpp",
               "RelativeDocumentMoniker": "cicrles-Midpoint.cpp",

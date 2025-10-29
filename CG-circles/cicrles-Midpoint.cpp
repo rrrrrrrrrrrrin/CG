@@ -38,7 +38,7 @@
 //		++x;
 //	}
 //
-//	The general algorithm ro get rid of floats (subsequently division) is to define a decision parameter (error),
+//	The general algorithm to get rid of floats (subsequently division) is to define a decision parameter (error),
 //	find its initial value, determine its step value (by finding errorNext - errorCurrent) and changing error in the loop
 //	according to the step value under certain conditions (the same algorithm is used to get rid of division in Bresenham's line algorithm)
 //
