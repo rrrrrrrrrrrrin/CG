@@ -27,12 +27,12 @@
 //		rgbImg img(width, height);
 //		RGB white{ 255, 255, 255 };
 //
-//		int x1 = 0;
-//		int y1 = 0;
-//		int x2 = 0;
-//		int y2 = 0;
+//		float x1 = 0;
+//		float y1 = 0;
+//		float x2 = 0;
+//		float y2 = 0;
 //
-//      float slopeX = 0;
+//		float slopeX = 0;
 //		float slopeY = 0;
 //
 //		while (inFile.get() != EOF)
@@ -42,7 +42,7 @@
 //			inFile >> x2;
 //			inFile >> y2;
 //
-//			 Lengths; make values float so that the division later on, will give a float slope value (if the slope was int, it would just be 0)
+//			// Lengths; make values float so that the division later on, will give a float slope value (if the slope was int, it would just be 0)
 //			float dx = x2 - x1;
 //			float dy = y2 - y1;
 //
@@ -53,14 +53,17 @@
 //				slopeX = dx / max_length;  // if not 1 (or -1) (slope = dx/dx),  slope is a float value, line is more horizontal than vertical (tg a = k = dx/dy; y = kx )
 //		        slopeY = dy / max_length;  // if not 1 (or -1) (slope = dy/dy), slope is a float value, line is more vertical than horizontal (tg a = k = dy/dx; y = kx )
 //
-//				for (int px = 0; px <= max_length; ++px)
+//				for (int px = 0; px <= static_cast<int>(max_length); ++px)
 //				{
-//					img.get(std::round(x1 + px * slopeX), std::round(y1 + px * slopeY)) = white;
+//					int w = static_cast<int>(std::round(x1 + static_cast<float>(px) * slopeX));
+//					int h = static_cast<int>(std::round(y1 + static_cast<float>(px) * slopeY));
+//
+//					img.get(static_cast<unsigned int>(w), static_cast<unsigned int>(h)) = white;
 //				}
 //			}
-//
-//			img.save(output);
 //		}
+// 
+//		img.save(output);
 //	}
 //	catch (std::exception& e) {
 //		std::cout << "Error. " << e.what() << std::endl;

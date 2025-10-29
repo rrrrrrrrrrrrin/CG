@@ -123,9 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cicrles.cpp" />
     <ClCompile Include="lines-Bresenham.cpp" />
-    <ClCompile Include="lines.cpp" />
+    <ClCompile Include="lines-slope.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgbimage.h" />

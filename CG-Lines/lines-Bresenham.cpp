@@ -104,10 +104,10 @@ int main(int argc, char* argv[]) {
 		rgbImg img(width, height);
 		RGB white{ 255, 255, 255 };
 
-		float x1 = 0;
-		float y1 = 0;
-		float x2 = 0;
-		float y2 = 0;
+		int x1 = 0;
+		int y1 = 0;
+		int x2 = 0;
+		int y2 = 0;
 
 		while (inFile.get() != EOF)
 		{
@@ -195,9 +195,9 @@ int main(int argc, char* argv[]) {
 					}
 				}
 			}
-
-			img.save(output);
 		}
+
+		img.save(output);
 	}
 	catch (std::exception& e) {
 		std::cout << "Error. " << e.what() << std::endl;

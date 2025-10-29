@@ -15,13 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cicrles.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lines.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lines-Bresenham.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lines-slope.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
