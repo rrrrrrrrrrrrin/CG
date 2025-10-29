@@ -18,14 +18,14 @@
 	   let's call it [p = x^2 + y^2 - R^2], for example, if [p > 0 => pixel is outside]
 
 	3. The 3 pixels can be defined as: 
-	   outside (have to decrement y to draw a pixel closer to the circle)
+
 	   [outside] (++x) = [(x+1)^2 + y^2 - R^2]
 	   
 	   [diagonal] (x+1 and y-1) = [(x+1)^2 + (y-1)^2 - R^2]
 		
 	   [inside] (--y) = [x^2 + (y-1)^2 - R^2]
 
-	2. Let's determine which pixel to draw based on the distance to the diagonal pixel
+	4. Let's determine which pixel to draw based on the distance to the diagonal pixel
 	   
 	   The diagonal pixel can either be outside the circle or inside.
 
@@ -34,23 +34,47 @@
 	   1) If [pDiag > 0], the pixel is outside, we should draw either [diagonal or outside pixel]
 	   2) If [pDiag < 0], the pixel is inside, we should draw either [diagonal or inside pixel]
 
-	3. Determine which pixel to draw in each individual case (define decision parameters). To do that, find the shortest distance:
 
-	   pOutside, pInside and pDiag are distances. pInside < pDiag < pOutside
+	5. Determine which pixel to draw in each individual case (define decision parameters). To do that, find the shortest distance:
 
-	   1) Decision parameter pDiag > 0 => p1 = pOutside - pDiag = (x+1)^2 + y^2 - R^2 - (x+1)^2 - (y-1)^2 + R^2 =
-	      = y^2 - y^2 + 2y - 1 = 2y - 1 => [p1 = 2y-1]
+	   |pOutside|, |pInside| and |pDiag| are distances. |pInside| < |pDiag| < |pOutside|
+
+	   We compare the diagonal pixel and the outside pixel. Diagonal pixel should be inside the circle for this comparison,
+	   to actually have a difference between distances and choose the shortest one.
+	   Analogy - the diagonal and the inside pixel, pDiag > 0 (diagonal pixel is outside).
+
+	   1) Decision parameter [pDiag < 0] - pixel is inside, [pOutside > 0] - pixel is outside ((x+1)^2 + y^2 - R^2 > 0 => (x+1)^2 + y^2 > R^2)
+	      => p1 = |pOutside| - |pDiag|
+
+		  Consider [pDiag < 0], so [the diagonal pixel is inside the circle outline] (closer to the circle than the outside/horizontal pixel), 
+		  so if the diagonal pixel has a shorter distance: pDiag < pOutside => p1 > 0: draw the diagonal pixel
+
+		  p1 = 2(x-1)^2 - 2R^2 + (y-1)^2 + y^2
+		  
+		  We need to [derivate a pDiag value]: pDiag = (x+1)^2 + y^2 - R^2 
+		  (it will be the only value that has a pDiag_Initial value, is checked in the loop pDiag > 0, < 0
+		  to determine other checks (p1 or p2) and will be changed with pDiag Steps: p = p + pDiag Step) 
+
+		  p1 = 2(x-1)^2 - 2R^2 + (y-1)^2 + y^2 {-2y + 2y + 1 - 1} = 2(pDiag + y) - 1 => [p1 = 2(pDiag + y) - 1]
 
 		  If pOutside < pDiag (the distance of the outside pixel is shorter; draw this pixel) 
 		  => pOutside - pDiag < 0 => if [p1 < 0], then draw the [outside pixel]
 		                             if [p1 > 0]: [diagonal]
 
-	   2) Decision parameter pDiag < 0 => p2 = pDiag - pInside = (x+1)^2 + (y-1)^2 - R^2 - x^2 - (y-1)^2 + R^2 = 
-	      = x^2 + 2x + 1 - x^2 = 2x + 1 => [p2 = 2x+1]
+	   2) Analogy - the diagonal and the inside pixel.
+	   
+		  Decision parameter [pDiag > 0] - pixel is outside, [pInside < 0] - pixel is inside (x^2 + (y-1)^2 - R^2 < 0 => x^2 + (y-1)^2 < R^2)
+		  
+		  => p2 = |pDiag| - |pInside| = (x+1)^2 + (y-1)^2 - R^2 + x^2 + (y-1)^2 - R^2.
+		  
+		  Derivate pDiag from the expression: p2 = 2(y-1)^2 - 2R^2 + (x+1)^2 + x^2 {+2x - 2x + 1 - 1} = 2(pDiag) - 2x - 1 = 2(pDiag - x) - 1
+
+		  => [p2 = 2(pDiag - x) - 1]
 
 		  [p2 < 0]: [diagonal], [p2 > 0]: [inside]
 
-	4. We have a decision parameter pDiag. Find pDiag STEPS to determine how we should update pDiag_Initial:
+
+	6. We have a decision parameter pDiag. Find pDiag STEPS to determine how we should update pDiag_Initial:
 
 	   pDiag_Initial = p_Diag(x = 0, y = R) = 1 + (R-1)^2 - R^2 = 1 + R^2 - 2R + 1 - R^2 = -2R + 2 = 2(1-R)] =>
 	   [pDiag_Initial = 2(1-R)]
@@ -67,25 +91,22 @@
 	   = (x+2)^2 - (y-2)^2 + R^2 - (x+1)^2 - (y-1)^2 + R^2 = 2(x - y^2 + 3y + R^2 - 1)
 	   [pDiag_Step = 2(x - y^2 + 3y + R^2 - 1)]
 
-	5. Final values that will be used in the algorithm:
+	7. Final values that will be used in the algorithm:
 
 	   Initial x, y: x=0, y=R
 
-	   [pDiag_Initial = 2(1-R)]
-
-
 	   Decision parameters:
 
-	   pDiag = (x+1)^2 + y^2 - R^2
+	   [pDiag_Initial = 2(1-R)]
 
 	   [pDiag > 0]: [diagonal or outside pixel]
 	   [pDiag < 0]: [diagonal or inside pixel]
 
-	   [p1 = 2y-1]
+	   [p1 = 2(pDiag + y) - 1]
 	   [p1 < 0: outside]
 	   [p1 > 0: diagonal]
 
-	   [p2 = 2x+1]
+	   [p2 = 2(pDiag - x) - 1]
 	   [p2 < 0: diagonal]
 	   [p2 > 0: inside]
 
@@ -135,17 +156,15 @@ int main(int argc, char* argv[]) {
 			int x = 0;
 			int y = R;
 
-			int p = 2*(1 - R);  // pInitial
+			int p = 2*(1 - R);  // pDiag_Initial
 
 			// Draw a circle
-			while (x < y)  // The octant is restricted by the line x = y 
+			while (y >= 0)  
 			{
-				int pDiag = (x + 1) * (x + 1) + y * y - R * R;
-
 				int p1 = 2 * y - 1; // horizontal or diagonal (outside pixel)
 				int p2 = 2 * x + 1; // vertical or diagonal (inside pixel)
 
-				if (pDiag > 0)  // draw a diagonal or an outside pixel
+				if (p > 0)  // draw a diagonal or an outside pixel
 				{
 					if (p1 < 0)  // draw an outside/horizontal pixel 
 					{
@@ -181,14 +200,10 @@ int main(int argc, char* argv[]) {
 				// Color in the pixel; offset x and y coordinate by x0, y0
 				img.get(x + x0, y + y0) = white;  // y = x
 
-				// Duplicate the algorithm for 1 octant on all 8 octants
-				img.get(y + y0, x + x0) = white;  // x = y
+				// Duplicate the algorithm for 1 quarter on all 4 quarters
 				img.get(x + x0, -y + y0) = white;  // x = -y
-				img.get(y + y0, -x + x0) = white;  // y = -x
-				img.get(-y + y0, -x + x0) = white;  // -y = -x
 				img.get(-x + x0, -y + y0) = white;  // -x = -y
 				img.get(-x + x0, y + y0) = white;  // -x = y
-				img.get(-y + y0, x + x0) = white;  // -y = x
 			}
 
 			img.save(output);

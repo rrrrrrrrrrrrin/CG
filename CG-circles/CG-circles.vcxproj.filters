@@ -21,6 +21,9 @@
     <ClCompile Include="circles-Bresenham.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="circles-Bresenham-Copy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgbimage.h">
