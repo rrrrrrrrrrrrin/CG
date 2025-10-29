@@ -92,8 +92,7 @@
 
 	   Horizontal step => x = x+1 and pDiag < 0, pDiag_Next_H > 0 (the pixel is outside now bcs ++x) =>
 
-	   if pDiag_Step_H > 0:
-	   (x+2)^2 + (y-1)^2 - R^2 + (x+1)^2 + (y-1)^2 - R^2 = 2(y-1)^2 - 2R^2 + (x+1)^2 + x^2 + 4x + 4 {-2x + 2x -3 + 3}
+	   pDiag_Step_H = (x+2)^2 + (y-1)^2 - R^2 + (x+1)^2 + (y-1)^2 - R^2 = 2(y-1)^2 - 2R^2 + (x+1)^2 + x^2 + 4x + 4 {-2x + 2x -3 + 3}
 	   = 2((x+1)^2 + (y-1)^2 - R^2) + 2x + 3 = 2(pDiag + x) + 3
 
 	   [pDiag_Step_H = 2(pDiag + x) + 3]
