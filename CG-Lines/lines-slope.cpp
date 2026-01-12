@@ -42,7 +42,8 @@
 //			inFile >> x2;
 //			inFile >> y2;
 //
-//			// Lengths; make values float so that the division later on, will give a float slope value (if the slope was int, it would just be 0)
+//			// Lengths; make values float so that the division later on,
+//			// will give a float slope value (if the slope was int, it would just be 0)
 //			float dx = x2 - x1;
 //			float dy = y2 - y1;
 //
@@ -50,8 +51,15 @@
 //
 //			if (max_length != 0)
 //			{
-//				slopeX = dx / max_length;  // if not 1 (or -1) (slope = dx/dx),  slope is a float value, line is more horizontal than vertical (tg a = k = dx/dy; y = kx )
-//		        slopeY = dy / max_length;  // if not 1 (or -1) (slope = dy/dy), slope is a float value, line is more vertical than horizontal (tg a = k = dy/dx; y = kx )
+//				// if not 1 (or -1) (slope = dx/dx),
+//				// slope is a float value, line is more horizontal
+//				// than vertical (tg a = k = dx/dy; y = kx )
+//				slopeX = dx / max_length;  
+//
+//				// if not 1 (or -1) (slope = dy/dy),
+//				// slope is a float value,
+//				// line is more vertical than horizontal (tg a = k = dy/dx; y = kx )
+//		        slopeY = dy / max_length;  
 //
 //				for (int px = 0; px <= static_cast<int>(max_length); ++px)
 //				{

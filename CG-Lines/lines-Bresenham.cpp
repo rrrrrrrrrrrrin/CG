@@ -3,7 +3,8 @@
 #include "rgbimage.h"
 
 /*
-	// Lengths; make values float so that the division by int later on, will give a float slope value
+	// Lengths; make values float so that the division by
+	// int later on, will give a float slope value
 	float dx = x2 - x1;
 	float dy = y2 - y1;
 
@@ -16,11 +17,13 @@
 
 	float p = round(y1 + (px + 1) * slope);  // current float pixel on the line
 
-	// Determine where to color in an int pixel by checking distance from float pixel to y and y+1
+	// Determine where to color in an int pixel
+	// by checking distance from float pixel to y and y+1
 	int d = y + 1 - p;  // y+1 > p
 	int d1 = p - y;  // y is higher on the grid (i.e. less) than p
 
-	// Color in the nearest to the float pixel int pixel which is either y or y+1
+	// Color in the nearest to the float pixel 
+	// int pixel which is either y or y+1
 	if (d < d1) { ++y; }  // y+1 is closer, color it in
 
 	1. p = d1 - d (p >= 0) (d < d1 => 0 < d1 - d => 0 < p) 
@@ -33,21 +36,35 @@
 
 	5. p = -2y - 1 + 2y1 + 2(px + 1) * dy / dx
 
-	6. Multiply each term by dx to get rid of division : p = -2*y*dx - dx + 2*y1*dx + 2*px*dy + 2*dy
+	6. Multiply each term by dx to get rid of division :
+		p = -2*y*dx - dx + 2*y1*dx + 2*px*dy + 2*dy
 
-	7. pInitial (initial px = 0, y = y1) = -2*y1*dx - dx + 2*y1*dx + 2*0*dy + 2*dy = 2*dy - dx
+	7. pInitial (initial px = 0, y = y1) 
+		= -2*y1*dx - dx + 2*y1*dx + 2*0*dy + 2*dy 
+		= 2*dy - dx
 
-	8. In current p value: - dx + 2*y1*dx + 2*dy are constant (dx, dy, y1 don't change in the loop) = > p = 2*dy*px - 2*dx*y
+	8. In current p value: - dx + 2*y1*dx + 2*dy are constant
+		(dx, dy, y1 don't change in the loop) 
+		=> p = 2*dy*px - 2*dx*y
 
-	9. pNext (px = px + 1, y = yNext (y or ++y if p < 0) ) = 2*dy*(px + 1) - 2*dx*y = 2*dy*px + 2*dy - 2*dx*yNext
+	9. pNext (px = px + 1, y = yNext (y or ++y if p < 0) ) 
+		= 2*dy*(px + 1) - 2*dx*y 
+		= 2*dy*px + 2*dy - 2*dx*yNext
 
-	10. => pStep = pNext - p = 2*dy*px + 2*dy - 2*dx*yNext - 2*dy*px + 2*dx*y = 2*dy - 2*dx*yNext + 2*dx*y = 2*dy + 2*dx*(y - yNext)
+	10. => pStep = pNext - p 
+		= 2*dy*px + 2*dy - 2*dx*yNext - 2*dy*px + 2*dx*y 
+		= 2*dy - 2*dx*yNext + 2*dx*y 
+		= 2*dy + 2*dx*(y - yNext)
 
-	11. Let's define two variables based on the pStep variable's value of yNext (it can either stay the same or be incremented by one):
-		pIncremented = p + pStep(yNext = y+1) = p + 2*dy + 2*dx*(y - y - 1) = p + 2*(dy - dx)
+	11. Let's define two variables based on the pStep variable's value of yNext
+		(it can either stay the same or be incremented by one):
+		pIncremented = p + pStep(yNext = y+1) 
+		= p + 2*dy + 2*dx*(y - y - 1) 
+		= p + 2*(dy - dx)
 		pUnchanged = p + pStep(yNext = y) = p + 2*dy + 2*dx*(y - y) = p + 2*dy
 
-	12. Obviously, pInitial should be placed outside the loop (dx, dy are constant)
+	12. Obviously, pInitial should be placed outside the loop
+		(dx, dy are constant)
 
 	13. if (p >= 0)
 		{
@@ -60,7 +77,9 @@
 			// pUnchanged = p + 2*dy
 			p = p + 2 * dy;
 		}
-	14. Now Bresenham's line algorithm draws a line in an (x, y) octant (abs(dx) > abs(dy), dx > 0 (=> dy > 0); => slope > 0). To draw lines in other 7 octants:
+	14. Now Bresenham's line algorithm draws a line in an (x, y) octant
+		(abs(dx) > abs(dy), dx > 0 (=> dy > 0);
+		=> slope > 0). To draw lines in other 7 octants:
 
 		Determine direction of y(whether to ++y or --y in the loop) :
 
@@ -74,7 +93,8 @@
 		(dx < 0)
 		if (x1 > x2) then swap(x1, x2), swap(y1, y2)
 
-		Therefore, we transformed (before the loop with direction and swapping of coordinates) any octant into a (x, y) octant
+		Therefore, we transformed (before the loop with direction and
+		swapping of coordinates) any octant into a (x, y) octant
 
 		To draw line in octants (y, x), (y, -x), (-y, x) and (-y, -x),
 		set another function where roles of y and x are switched
@@ -119,7 +139,9 @@ int main(int argc, char* argv[]) {
 			int dx = x2 - x1;
 			int dy = y2 - y1;
 			 
-			// line is more horizontal than vertical; y changes depending on the slope = dy/dx (dy by dx bcs it is the change of y)
+			// line is more horizontal than vertical;
+			// y changes depending on the slope = dy/dx
+			// (dy by dx bcs it is the change of y)
 			if (std::abs(dx) > std::abs(dy)) 
 			{
 				// Recalculate dx and dy to make them positive if necessary
@@ -143,7 +165,8 @@ int main(int argc, char* argv[]) {
 
 					for (int px = 0; px < dx + 1; ++px)
 					{
-						img.get(x1 + px, y) = white;  // (bcs px = 0 draw a pixel first)
+						// (bcs px = 0 draw a pixel first)
+						img.get(x1 + px, y) = white; 
 
 						if (p >= 0)
 						{
@@ -159,7 +182,8 @@ int main(int argc, char* argv[]) {
 			}
 			else // (std::abs(dy) > std::abs(dx))
 			{
-				// Recalculate dx and dy to make them positive if necessary
+				// Recalculate dx and dy to make them
+				// positive if necessary
 				if (y1 > y2)  // dy < 0
 				{
 					std::swap(x1, x2);
@@ -180,7 +204,9 @@ int main(int argc, char* argv[]) {
 
 					for (int py = 0; py < dy + 1; ++py)
 					{
-						// Write img.get(x, y) BECAUSE we put a pixel on an image which has a fixed (width, height), width is Ox, height is Oy. IT IS NOT ABOUT OCTANTS
+						// Write img.get(x, y) BECAUSE we put a pixel on an image which
+						// has a fixed (width, height), width is Ox, height is Oy.
+						// IT IS NOT ABOUT OCTANTS
 						img.get(x, y1 + py) = white;  // (bcs py = 0 draw a pixel first)
 
 						if (p >= 0)
